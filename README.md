@@ -5,17 +5,18 @@
 - Instrucciones de uso:
   - Guardá el archivo CSV como paises.csv en la misma carpeta que el programa.
   - Asegurate de que tenga columnas: nombre, población, superficie y continente (pueden tener acentos o mayúsculas).
-  - Ejecutá el programa con: python nombre_del_archivo.py
+  - Ejecutá el programa con: python TrabajoIntegrador.py
     
   - Usá el menú para:
-    - Buscar países por nombre.
-    - Filtrar por continente (acepta sin acento o errores comunes).
-    - Filtrar por rangos de población o superficie.
-    - Ordenar países por nombre, población o superficie.
-    - Ver estadísticas generales.
-      
+    -Buscar países por nombre.
+    -Filtrar por continente (acepta sin acento o errores comunes).
+    -Filtrar por rangos de población o superficie.
+    -Ordenar países por nombre, población o superficie.
+    -Ver estadísticas generales.
+    -Agregar un país manualmente.
+    -Editar la población y superficie de un país existente.  
   - Escribí el número de la opción y seguí las instrucciones.
-  - Para salir, elegí la opción 7.
+  - Para salir, elegí la opción 9.
     
     
 - Ejemplo de entrada y salida:
