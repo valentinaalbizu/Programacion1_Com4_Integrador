@@ -6,6 +6,8 @@ def cargar_paises(ruta_csv):
     paises = []
 
     try:
+        # Acá abrimos el archivo CSV para leer los países y recorrer cada fila
+
         with open(ruta_csv, newline='', encoding='utf-8') as archivo:
             lector = csv.DictReader(archivo)
 
@@ -28,7 +30,7 @@ def cargar_paises(ruta_csv):
                         "superficie": float(superficie),
                         "continente": continente.strip()
                     }
-
+                    
                     paises.append(pais)
 
                 except Exception:
@@ -43,5 +45,6 @@ def cargar_paises(ruta_csv):
         print("\nError: No se encontró el archivo especificado.")
     except Exception as e:
         print(f"\nError al leer el archivo: {e}")
+    # Devuelve la lista final de países ya cargados
 
     return paises

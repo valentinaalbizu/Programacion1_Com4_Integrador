@@ -25,15 +25,19 @@ def mostrar_menu():
 
 
 def main():
+    # Carga todos los países desde el archivo CSV al iniciar el programa
+
     paises = cargar_paises(ARCHIVO_PAISES)
 
     if not paises:
         print(" No se pudo cargar ningún país. Cerrando programa.")
         return
+    # Acá empieza el menú principal, que se repite hasta que el usuario elija salir
 
     while True:
         mostrar_menu()
         opcion = input("Elegí una opción: ")
+        # Opción 1: buscar un país escribiendo parte o todo su nombre
 
         if opcion == "1":
             nombre = input("Ingresá el nombre (o parte del nombre) del país: ")
@@ -52,6 +56,7 @@ def main():
             min_sup, max_sup = pedir_rango("superficie")
             if min_sup is not None:
                 filtrar_por_rango(paises, "superficie", min_sup, max_sup)
+        # Opción 5: ordenar países por nombre, población o superficie
 
         elif opcion == "5":
             campo = input("Campo para ordenar (nombre/poblacion/superficie): ").lower()
@@ -66,6 +71,7 @@ def main():
 
         elif opcion == "8":
             editar_pais(paises)
+        # Opción 9: termina el programa y sale del menú
 
         elif opcion == "9":
             print("\n Programa finalizado. ¡Hasta luego!")

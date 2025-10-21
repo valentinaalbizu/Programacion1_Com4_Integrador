@@ -2,18 +2,23 @@
 from Funciones import *
 
 def mostrar_estadisticas(paises):
+    # Calcula y muestra datos generales de todos los países (máximos, promedios, etc.)
+
     if not paises:
         print(" No hay datos disponibles para mostrar estadísticas.")
         return
-
+    # Busca el país con más y menos población
     pais_mayor = max(paises, key=lambda x: x["poblacion"])
     pais_menor = min(paises, key=lambda x: x["poblacion"])
+    # Calcula los promedios de población y superficie
     promedio_poblacion = sum(p["poblacion"] for p in paises) / len(paises)
     promedio_superficie = sum(p["superficie"] for p in paises) / len(paises)
 
     # Contar países por continente usando normalización
     paises_por_continente = {}
     nombre_muestra_por_normalizado = {}
+    # Cuenta cuántos países hay en cada continente
+
     for p in paises:
         cont_norm = normalizar(p["continente"])
         paises_por_continente[cont_norm] = paises_por_continente.get(cont_norm, 0) + 1

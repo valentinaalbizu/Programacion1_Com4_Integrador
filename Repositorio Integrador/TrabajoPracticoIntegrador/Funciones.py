@@ -2,12 +2,15 @@
 import unicodedata 
 from Utilidades import *
 
+# Esta función sirve para comparar textos sin importar mayúsculas o acentos
+
 def normalizar(texto):
     """Convierte texto a minúsculas, elimina espacios y acentos."""
     texto = texto.lower().strip()
     texto = unicodedata.normalize('NFD', texto)
     texto = ''.join(c for c in texto if unicodedata.category(c) != 'Mn')
     return texto
+# Busca países que contengan el texto que el usuario escribió
 
 def buscar_pais(paises, nombre):
     nombre_normalizado = normalizar(nombre)
@@ -37,6 +40,7 @@ def filtrar_por_rango(paises, campo, minimo, maximo):
     else:
         print(f"\n No hay países con {campo} en ese rango.")
 
+# Permite cambiar los datos de población y superficie de un país
 
 def editar_pais(paises):
     print("\n Editar país ")
@@ -70,11 +74,18 @@ def editar_pais(paises):
 
     except ValueError:
         print("Entrada inválida.")
+# Permite agregar un país nuevo al listado general
 
 def agregar_pais(paises):
     print("\n--- Agregar nuevo país ---")
+
     nombre = input("Nombre del país: ").strip()
+    while nombre == "":
+        nombre = input("⚠️ El nombre no puede estar vacío. Ingresá nuevamente: ").strip()
+
     continente = input("Continente: ").strip()
+    while continente == "":
+        continente = input("⚠️ El continente no puede estar vacío. Ingresá nuevamente: ").strip()
 
     try:
         poblacion = int(input("Población: "))
@@ -82,6 +93,7 @@ def agregar_pais(paises):
     except ValueError:
         print("Error: Población y superficie deben ser numéricos.")
         return
+
 
     nuevo_pais = {
         "nombre": nombre,
