@@ -1,0 +1,92 @@
+import csv 
+import unicodedata 
+
+from Funciones import *
+from Estadisticas import *
+from CargaDeDatos import *
+from Ordenamientos import *
+from Utilidades import *
+
+ARCHIVO_PAISES = "paises.csv"
+
+# MENÚ PRINCIPAL 
+
+def mostrar_menu():
+    print("     - MENÚ DE OPCIONES -     ")
+    print("1. Buscar país por nombre")
+    print("2. Filtrar por continente")
+    print("3. Filtrar por rango de población")
+    print("4. Filtrar por rango de superficie")
+    print("5. Ordenar países")
+    print("6. Mostrar estadísticas")
+    print("7. Agregar un país")
+    print("8. Editar población y superficie de un país")
+    print("9. Salir")
+
+
+def main():
+    # Carga todos los países desde el archivo CSV al iniciar el programa
+    paises = cargar_paises(ARCHIVO_PAISES)
+
+    if not paises:
+        print(" No se pudo cargar ningún país. Cerrando programa.")
+        return
+    
+    # Acá empieza el menú principal, que se repite hasta que el usuario elija salir
+    while True:
+        mostrar_menu()
+        opcion = input("Elegí una opción: ")
+
+        # Opción 1: buscar un país escribiendo parte o todo su nombre
+        if opcion == "1":
+            nombre = input("Ingresá el nombre (o parte del nombre) del país: ")
+            buscar_pais(paises, nombre)
+
+        # Opcion 2: Filtar paises por continente
+        elif opcion == "2":
+            continente = input("Ingresá el nombre del continente: ")
+            filtrar_por_continente(paises, continente)
+
+        # Opcion 3: Filtra paises por un rango de poblacion
+        elif opcion == "3":
+            min_pob, max_pob = pedir_rango("población")
+            if min_pob is not None:
+                filtrar_por_rango(paises, "poblacion", min_pob, max_pob)
+
+        #Opcion 4: Filtra paises por un rango de superficie
+        elif opcion == "4":
+            min_sup, max_sup = pedir_rango("superficie")
+            if min_sup is not None:
+                filtrar_por_rango(paises, "superficie", min_sup, max_sup)
+
+        # Opción 5: ordenar países por nombre, población o superficie
+        elif opcion == "5":
+            campo = input("Campo para ordenar (nombre/poblacion/superficie): ").lower()
+            descendente = input("¿Querés orden descendente? (s/n): ").lower() == "s"
+            ordenar_paises(paises, campo, descendente)
+
+        # Opcion 6: Muestra estadisticas de los paises
+        elif opcion == "6":
+            mostrar_estadisticas(paises)
+
+        # Opcion 7: Agregar un pais nuevo
+        elif opcion == "7":
+            agregar_pais(paises)
+
+        # Opcion 8: Editar datos de un pais
+        elif opcion == "8":
+            editar_pais(paises)
+
+        # Opción 9: termina el programa y sale del menú
+        elif opcion == "9":
+            print("\n Programa finalizado. ¡Hasta luego!")
+            break
+
+        else:
+            print(" Opción inválida. Intentá de nuevo.")
+
+
+# EJECUCIÓN 
+
+if __name__ == "__main__":
+    main()
