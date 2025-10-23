@@ -34,4 +34,6 @@
     - Sofia colaboró en las pruebas del sistema, revisó los filtros y estadísticas, y propuso mejoras en los mensajes del menú y en la validación de entradas. Su aporte ayudó a que el programa sea más intuitivo y completo.
       
   - Ambas participamos activamente en cada parte del desarrollo, revisando el código, probando funciones y ajustando detalles. El resultado es un programa pensado para el trabajo en grupo, con una lógica clara y una experiencia amigable.
+ 
+ - Video Integrador: https://youtu.be/k1f9H6P1pJs
               
