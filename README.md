@@ -20,8 +20,8 @@
     
     
 - Ejemplo de entrada y salida:
-  - Buscar por nombre:
-    -  Entrada: BRASIL
+ - Buscar por nombre:
+   -  Entrada: BRASIL
     -  Salida:
        - Se encontraron 1 país(es) con el nombre 'Brasil':
        - Brasil | Población: 213,993,437 | Superficie: 8,515,767 km² | Continente: América
