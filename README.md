@@ -35,5 +35,5 @@
       
   - Ambas participamos activamente en cada parte del desarrollo, revisando el código, probando funciones y ajustando detalles. El resultado es un programa pensado para el trabajo en grupo, con una lógica clara y una experiencia amigable.
  
- - Video Integrador: 
+ - Video Integrador: https://youtu.be/arTaqDrWpzE?si=vMKj0P-Ks8Vjqypz
               
